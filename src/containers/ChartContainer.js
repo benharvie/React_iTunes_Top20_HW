@@ -9,4 +9,18 @@ class ChartContainer extends React.Component {
   }
 }
 
+componentDidMount() {
+  fetch("https://itunes.apple.com/gb/rss/topsongs/limit=20/json")
+    .then(response => response.json())
+    .then(charts => this.setState({ songs: charts.feed.entry }))
+}
+
+render() {
+  return (
+    <div>
+      <h1>Top 20 Charts</h1>
+      <SongList />
+    </div>
+  )
+}
 export default ChartContainer
