@@ -6,16 +6,14 @@ const SongList = (props) => {
     console.log(song);
     const songName = song["im:name"]["label"]
     const artistName = song["im:artist"]["label"]
-    return <li>{songName} - {artistName}</li>
+    return <li key={song["id"]["attributes"]["im:id"]}>{songName} - {artistName}</li>
   })
 
   return (
     <div>
-      <p>SongList</p>
-        <ul>
-          {songs}
-        </ul>
-      <Song />
+      <ul>
+        {songs}
+      </ul>
     </div>
   )
 }
