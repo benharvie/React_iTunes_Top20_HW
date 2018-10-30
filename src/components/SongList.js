@@ -1,10 +1,20 @@
 import React from 'react';
 import Song from './Song'
 
-const SongList = () => {
+const SongList = (props) => {
+  const songs = props.songs.map((song) => {
+    console.log(song);
+    const songName = song["im:name"]["label"]
+    const artistName = song["im:artist"]["label"]
+    return <li>{songName} - {artistName}</li>
+  })
+
   return (
     <div>
-      <p>Songlist</p>
+      <p>SongList</p>
+        <ul>
+          {songs}
+        </ul>
       <Song />
     </div>
   )
